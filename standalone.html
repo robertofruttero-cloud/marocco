@@ -1,80 +1,107 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Marocco Energy — Luce e Gas in Italia per i cittadini marocchini</title>
-  <meta name="description" content="Luce e Gas in Italia per i cittadini marocchini. Risparmio collettivo, tariffe trasparenti e assistenza al 100% nella tua lingua." />
+  <meta name="description" content="Luce e Gas in Italia per la comunità marocchina. Risparmio collettivo, tariffe trasparenti e assistenza al 100% nella tua lingua." />
   <link rel="icon" type="image/png" href="logo-definitivo.png" />
-  <meta property="og:title" content="Marocco Energy — Luce e Gas in Italia" />
-  <meta property="og:description" content="Risparmio collettivo su Luce e Gas in Italia per la comunità marocchina." />
+  <meta property="og:title" content="Marocco Energy — Luce e Gas in Italia per i cittadini marocchini" />
+  <meta property="og:description" content="Luce e Gas in Italia per la comunità marocchina. Risparmio collettivo, tariffe trasparenti e assistenza al 100% nella tua lingua." />
   <meta property="og:image" content="logo-definitivo.png" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Google Fonts: Inter & Cairo -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+
   <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
-    body { font-family: 'Inter', sans-serif; }
-    [dir="rtl"] body, [dir="rtl"] * { font-family: 'Cairo', 'Inter', sans-serif; }
     html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+    [dir="rtl"] body, [dir="rtl"] * { font-family: 'Cairo', 'Inter', system-ui, sans-serif; }
+    .doc-card.hidden-card { display: none; }
   </style>
 </head>
 <body class="bg-white text-slate-900 selection:bg-red-800 selection:text-white antialiased">
 
-  <!-- Top Bar -->
-  <div class="bg-red-950 text-red-100 text-xs py-2 px-4 border-b border-red-900">
+  <!-- 1. TOP COMMUNITY BANNER -->
+  <header class="bg-red-950 text-red-100 text-xs py-2 px-4 border-b border-red-900 sticky top-0 z-50">
     <div class="max-w-7xl mx-auto flex justify-between items-center flex-wrap gap-2">
       <div class="flex items-center gap-2">
-        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-        <span class="font-bold text-white" id="topbar-txt">🇲🇦 Energia e Gas per la Comunità Marocchina in Italia</span>
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="font-bold text-white" id="t-topbar">🇲🇦 Energia e Gas per la Comunità Marocchina in Italia</span>
       </div>
       <div class="flex items-center gap-4 text-xs font-semibold">
-        <a href="tel:+3901721860282" class="hover:text-white">📞 0172 1860282</a>
-        <a href="https://wa.me/393933192262" target="_blank" class="text-emerald-400 hover:text-emerald-300 font-bold">💬 WhatsApp: +39 393 3192262</a>
+        <a href="tel:+3901721860282" class="hover:text-white flex items-center gap-1">
+          <i data-lucide="phone" class="w-3.5 h-3.5 text-amber-400"></i>
+          <span>0172 1860282</span>
+        </a>
+        <a href="https://wa.me/393933192262" target="_blank" class="text-emerald-400 hover:text-emerald-300 font-bold flex items-center gap-1">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+          <span>WhatsApp: +39 393 3192262</span>
+        </a>
       </div>
     </div>
-  </div>
+  </header>
 
-  <!-- Navbar -->
-  <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-red-100 shadow-sm">
+  <!-- 2. MAIN NAVBAR -->
+  <nav class="bg-white/95 backdrop-blur-md border-b border-red-100 shadow-sm sticky top-8 z-40">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Logo -->
       <a href="#hero" class="flex items-center gap-3">
-        <img src="logo-definitivo.png" onerror="this.onerror=null; this.src='public/logo-definitivo.png';" alt="Marocco Energy" class="h-14 w-auto object-contain rounded-lg" />
+        <img src="logo-definitivo.png" onerror="this.onerror=null; this.src='public/logo-definitivo.png';" alt="Marocco Energy" class="h-14 md:h-16 w-auto object-contain rounded-lg shadow-xs hover:opacity-95 transition" />
       </a>
 
-      <!-- Desktop Nav -->
+      <!-- Desktop Navigation Menu -->
       <div class="hidden lg:flex items-center gap-6 text-sm font-bold text-slate-700">
         <a href="#luz-section" class="hover:text-red-700 transition" id="nav-luz">Offerte Luce</a>
         <a href="#gas-section" class="hover:text-red-700 transition" id="nav-gas">Offerte Gas</a>
         <a href="#calculadora-section" class="hover:text-red-700 transition" id="nav-calc">Simulatore</a>
         <a href="#guia-section" class="hover:text-red-700 transition" id="nav-guia">Guida Bolletta</a>
-        <a href="#faq-section" class="hover:text-red-700 transition" id="nav-faq">Documenti & FAQ</a>
+        <a href="#faq-docs-section" class="hover:text-red-700 transition" id="nav-docs">Documenti & FAQ</a>
         <a href="#contacto-section" class="hover:text-red-700 transition" id="nav-contact">Contatto</a>
       </div>
 
+      <!-- Action items & Language Selector -->
       <div class="flex items-center gap-3">
         <!-- Language Switcher -->
-        <div class="flex bg-red-50 p-1 rounded-xl border border-red-200">
-          <button id="btn-lang-it" onclick="setLanguage('it')" class="px-2.5 py-1 text-xs font-bold rounded-lg bg-red-700 text-white shadow-xs">IT</button>
-          <button id="btn-lang-ar" onclick="setLanguage('ar')" class="px-2.5 py-1 text-xs font-bold rounded-lg text-slate-600 hover:text-red-800">عربي</button>
+        <div class="flex bg-red-50 p-1 rounded-xl border border-red-200 shadow-xs">
+          <button id="btn-lang-it" onclick="setLanguage('it')" class="px-2.5 py-1 text-xs font-black rounded-lg bg-red-700 text-white shadow-xs transition">IT</button>
+          <button id="btn-lang-ar" onclick="setLanguage('ar')" class="px-2.5 py-1 text-xs font-black rounded-lg text-slate-600 hover:text-red-800 transition">عربي</button>
         </div>
 
-        <button onclick="openAuditModal()" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-red-700 to-green-900 hover:from-red-600 hover:to-green-800 text-white text-xs font-black rounded-xl shadow-md transition">
+        <button onclick="openAuditModal()" class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-red-700 to-green-900 hover:from-red-600 hover:to-green-800 text-white text-xs font-black rounded-xl shadow-md transition transform hover:-translate-y-0.5">
           <i data-lucide="file-text" class="w-4 h-4"></i>
           <span id="btn-audit-nav">Invia Bolletta</span>
         </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button onclick="toggleMobileMenu()" class="lg:hidden p-2 text-slate-600 hover:text-slate-900">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
       </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-red-100 bg-white px-4 py-3 space-y-2 font-bold text-sm text-slate-700">
+      <a href="#luz-section" onclick="toggleMobileMenu()" class="block py-2 hover:text-red-700" id="m-luz">Offerte Luce</a>
+      <a href="#gas-section" onclick="toggleMobileMenu()" class="block py-2 hover:text-red-700" id="m-gas">Offerte Gas</a>
+      <a href="#calculadora-section" onclick="toggleMobileMenu()" class="block py-2 hover:text-red-700" id="m-calc">Simulatore</a>
+      <a href="#guia-section" onclick="toggleMobileMenu()" class="block py-2 hover:text-red-700" id="m-guia">Guida Bolletta</a>
+      <a href="#faq-docs-section" onclick="toggleMobileMenu()" class="block py-2 hover:text-red-700" id="m-docs">Documenti & FAQ</a>
+      <a href="#contacto-section" onclick="toggleMobileMenu()" class="block py-2 hover:text-red-700" id="m-contact">Contatto</a>
     </div>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- 3. HERO SECTION -->
   <section id="hero" class="relative py-16 lg:py-24 overflow-hidden bg-gradient-to-b from-red-50/60 via-white to-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -106,7 +133,8 @@
             </button>
           </div>
 
-          <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-200 text-xs font-semibold text-slate-700">
+          <!-- Feature Pills -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 border-t border-slate-200 text-xs font-semibold text-slate-700">
             <div class="flex items-center gap-2">
               <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600 shrink-0"></i>
               <span id="hero-pill-1">100% Senza Interruzione</span>
@@ -122,11 +150,13 @@
           </div>
         </div>
 
+        <!-- Official Logo Presentation Card -->
         <div class="lg:col-span-5 text-center">
-          <div class="relative inline-block p-4 bg-gradient-to-b from-white to-red-50 rounded-3xl border-2 border-red-200 shadow-2xl">
-            <img src="logo-definitivo.png" onerror="this.onerror=null; this.src='public/logo-definitivo.png';" alt="Marocco Energy" class="w-72 sm:w-80 mx-auto rounded-2xl" />
-            <div class="mt-4 p-3 bg-red-100/60 rounded-xl border border-red-200 text-xs font-bold text-red-950">
-              📍 Sede Operativa: Via Bartolomeo Bruni 7, Cuneo (CN)
+          <div class="relative inline-block p-4 sm:p-6 bg-gradient-to-b from-white to-red-50 rounded-3xl border-2 border-red-200 shadow-2xl">
+            <img src="logo-definitivo.png" onerror="this.onerror=null; this.src='public/logo-definitivo.png';" alt="Marocco Energy" class="w-72 sm:w-80 mx-auto rounded-2xl shadow-sm" />
+            <div class="mt-4 p-3 bg-red-100/70 rounded-xl border border-red-200 text-xs font-bold text-red-950 flex items-center justify-center gap-2">
+              <i data-lucide="map-pin" class="w-4 h-4 text-red-700"></i>
+              <span>Sede Operativa: Via Bartolomeo Bruni 7, Cuneo (CN)</span>
             </div>
           </div>
         </div>
@@ -134,7 +164,7 @@
     </div>
   </section>
 
-  <!-- Stats -->
+  <!-- 4. STATS SECTION -->
   <section class="py-12 bg-gradient-to-r from-red-900 via-red-800 to-green-950 text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
       <div>
@@ -156,62 +186,698 @@
     </div>
   </section>
 
-  <!-- Calculator -->
+  <!-- 5. OFFERTE LUCE (ELECTRICITY) -->
+  <section id="luz-section" class="py-16 md:py-24 bg-white border-t border-red-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-100 border border-red-300 text-red-900 text-xs font-bold mb-3">
+          <i data-lucide="zap" class="w-3.5 h-3.5 text-red-700"></i>
+          <span id="luz-badge">Fornitura Elettrica 100% Trasparente</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900" id="luz-title">Tariffe Luce Pensate per Risparmiare</h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-2" id="luz-sub">Energia 100% certificata da fonti rinnovabili, senza costi nascosti e con assistenza diretta in arabo o italiano.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Card 1: Luce Casa Fix -->
+        <div class="bg-white rounded-3xl border-2 border-red-200 p-6 sm:p-8 flex flex-col justify-between hover:border-red-400 hover:shadow-xl transition duration-300">
+          <div>
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <h3 class="font-black text-xl text-slate-900">Luce Casa Fix</h3>
+                <p class="text-xs text-slate-500">Tranquillità con prezzo bloccato 12 mesi</p>
+              </div>
+              <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-slate-100 text-slate-700">Casa</span>
+            </div>
+
+            <div class="my-6 p-4 rounded-2xl bg-red-50 border border-red-200 text-center">
+              <span class="text-xs text-red-700 font-bold block">Prezzo Materia Energia</span>
+              <div class="text-3xl font-black text-red-900 my-1">0,138 <span class="text-xs font-normal">€/kWh</span></div>
+              <span class="text-[11px] text-slate-500">Commercializzazione: 7,50 €/mese</span>
+            </div>
+
+            <ul class="text-xs text-slate-600 space-y-2.5 mb-6">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i> 100% Energia Verde Certificata</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i> Prezzo fisso garantito per 1 intero anno</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i> Nessun deposito cauzionale con RID</li>
+            </ul>
+          </div>
+
+          <button onclick="selectPlan('Luce Casa Fix', 'luz')" class="w-full py-3 rounded-xl bg-red-700 hover:bg-red-800 text-white font-bold text-xs shadow-md transition">
+            Attiva Luce Casa Fix
+          </button>
+        </div>
+
+        <!-- Card 2: Luce Casa Flex (PUN) -->
+        <div class="bg-white rounded-3xl border-2 border-red-500 p-6 sm:p-8 flex flex-col justify-between shadow-xl relative ring-2 ring-red-200">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-red-700 to-green-900 text-white text-[11px] font-black uppercase tracking-wider py-1 px-4 rounded-full shadow-md">
+            ★ Più Scelta dalla Comunità
+          </div>
+          <div>
+            <div class="flex justify-between items-start mb-4 mt-2">
+              <div>
+                <h3 class="font-black text-xl text-slate-900">Luce Casa Flex</h3>
+                <p class="text-xs text-slate-500">Tariffa all'ingrosso PUN senza ricarichi gonfiati</p>
+              </div>
+              <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-red-100 text-red-900">Popolare</span>
+            </div>
+
+            <div class="my-6 p-4 rounded-2xl bg-gradient-to-br from-red-100/60 to-red-50 border border-red-300 text-center">
+              <span class="text-xs text-red-800 font-bold block">Prezzo Ingrosso PUN</span>
+              <div class="text-3xl font-black text-red-950 my-1">PUN + 0,019 <span class="text-xs font-normal">€/kWh</span></div>
+              <span class="text-[11px] text-slate-600">Commercializzazione: 6,50 €/mese</span>
+            </div>
+
+            <ul class="text-xs text-slate-600 space-y-2.5 mb-6">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i> Paghi l'energia al prezzo reale di mercato</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i> Sfrutti subito i ribassi dei prezzi in borsa</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i> Assistenza dedicata WhatsApp sempre attiva</li>
+            </ul>
+          </div>
+
+          <button onclick="selectPlan('Luce Casa Flex', 'luz')" class="w-full py-3 rounded-xl bg-gradient-to-r from-red-700 to-green-900 hover:from-red-600 hover:to-green-800 text-white font-bold text-xs shadow-md transition">
+            Attiva Luce Casa Flex
+          </button>
+        </div>
+
+        <!-- Card 3: Luce Business PMI -->
+        <div class="bg-white rounded-3xl border-2 border-slate-200 p-6 sm:p-8 flex flex-col justify-between hover:border-red-400 hover:shadow-xl transition duration-300">
+          <div>
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <h3 class="font-black text-xl text-slate-900">Luce Impresa & PMI</h3>
+                <p class="text-xs text-slate-500">Per negozi, macellerie, ristoranti e Partite IVA</p>
+              </div>
+              <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-900">Partita IVA</span>
+            </div>
+
+            <div class="my-6 p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-center">
+              <span class="text-xs text-emerald-800 font-bold block">Tariffa Aziendale Dedicata</span>
+              <div class="text-3xl font-black text-emerald-950 my-1">PUN + 0,015 <span class="text-xs font-normal">€/kWh</span></div>
+              <span class="text-[11px] text-slate-500">Gestione potenza e fasce F1/F2/F3</span>
+            </div>
+
+            <ul class="text-xs text-slate-600 space-y-2.5 mb-6">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i> Fatturazione elettronica diretta con codice SDI</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i> Ottimizzazione della potenza impegnata contatore</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i> Consulente dedicato e audit consumi trimestrale</li>
+            </ul>
+          </div>
+
+          <button onclick="selectPlan('Luce Impresa & PMI', 'empresa')" class="w-full py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs shadow-md transition">
+            Attiva Luce Impresa
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. OFFERTE GAS METANO -->
+  <section id="gas-section" class="py-16 md:py-24 bg-amber-50/20 border-t border-amber-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 border border-amber-300 text-amber-900 text-xs font-bold mb-3">
+          <i data-lucide="flame" class="w-3.5 h-3.5 text-amber-700"></i>
+          <span id="gas-badge">Fornitura Gas Metano Naturale</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900" id="gas-title">Tariffe Gas Chiare, Senza Sorprese</h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-2" id="gas-sub">Riscaldamento e cottura senza conguagli esagerati. Autolettura facile direttamente su WhatsApp.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Gas Casa Fix -->
+        <div class="bg-white rounded-3xl border-2 border-amber-200 p-6 sm:p-8 flex flex-col justify-between hover:border-amber-400 hover:shadow-xl transition duration-300">
+          <div>
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <h3 class="font-black text-xl text-slate-900">Gas Casa Fix</h3>
+                <p class="text-xs text-slate-500">Inverni sereni con prezzo bloccato 12 mesi</p>
+              </div>
+              <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-slate-100 text-slate-700">Casa</span>
+            </div>
+
+            <div class="my-6 p-4 rounded-2xl bg-amber-50 border border-amber-200 text-center">
+              <span class="text-xs text-amber-800 font-bold block">Prezzo Gas Metano</span>
+              <div class="text-3xl font-black text-amber-950 my-1">0,490 <span class="text-xs font-normal">€/Smc</span></div>
+              <span class="text-[11px] text-slate-500">Commercializzazione: 8,00 €/mese</span>
+            </div>
+
+            <ul class="text-xs text-slate-600 space-y-2.5 mb-6">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i> Nessun aumento se il prezzo internazionale sale</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i> Bollette precise basate sulla lettura reale</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i> Trasferimento gratuito senza interruzione del gas</li>
+            </ul>
+          </div>
+
+          <button onclick="selectPlan('Gas Casa Fix', 'gas')" class="w-full py-3 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs shadow-md transition">
+            Attiva Gas Casa Fix
+          </button>
+        </div>
+
+        <!-- Gas Casa Flex (PSV) -->
+        <div class="bg-white rounded-3xl border-2 border-amber-500 p-6 sm:p-8 flex flex-col justify-between shadow-xl relative ring-2 ring-amber-200">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-600 to-red-800 text-white text-[11px] font-black uppercase tracking-wider py-1 px-4 rounded-full shadow-md">
+            ★ Più Scelta per Famiglie
+          </div>
+          <div>
+            <div class="flex justify-between items-start mb-4 mt-2">
+              <div>
+                <h3 class="font-black text-xl text-slate-900">Gas Casa Flex</h3>
+                <p class="text-xs text-slate-500">Tariffa indicizzata al mercato all'ingrosso PSV</p>
+              </div>
+              <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-amber-100 text-amber-900">Flessibile</span>
+            </div>
+
+            <div class="my-6 p-4 rounded-2xl bg-amber-100/60 border border-amber-300 text-center">
+              <span class="text-xs text-amber-900 font-bold block">Prezzo Ingrosso PSV</span>
+              <div class="text-3xl font-black text-amber-950 my-1">PSV + 0,065 <span class="text-xs font-normal">€/Smc</span></div>
+              <span class="text-[11px] text-slate-600">Commercializzazione: 7,00 €/mese</span>
+            </div>
+
+            <ul class="text-xs text-slate-600 space-y-2.5 mb-6">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i> Agganciato al valore reale della borsa gas PSV</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i> Sconto aggiuntivo se abbini Luce + Gas (-24€/anno)</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i> Assistenza in arabo per volture e subentri</li>
+            </ul>
+          </div>
+
+          <button onclick="selectPlan('Gas Casa Flex', 'gas')" class="w-full py-3 rounded-xl bg-gradient-to-r from-amber-600 to-red-800 hover:from-amber-500 hover:to-red-700 text-white font-bold text-xs shadow-md transition">
+            Attiva Gas Casa Flex
+          </button>
+        </div>
+
+        <!-- Gas Impresa -->
+        <div class="bg-white rounded-3xl border-2 border-slate-200 p-6 sm:p-8 flex flex-col justify-between hover:border-amber-400 hover:shadow-xl transition duration-300">
+          <div>
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <h3 class="font-black text-xl text-slate-900">Gas Attività & Cottura</h3>
+                <p class="text-xs text-slate-500">Per forni, pizzerie, gastronomie e riscaldamento locali</p>
+              </div>
+              <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-900">Aziende</span>
+            </div>
+
+            <div class="my-6 p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-center">
+              <span class="text-xs text-emerald-800 font-bold block">Tariffa Grandi Consumi</span>
+              <div class="text-3xl font-black text-emerald-950 my-1">PSV + 0,050 <span class="text-xs font-normal">€/Smc</span></div>
+              <span class="text-[11px] text-slate-500">Scaglioni agevolati e IVA al 10% ove applicabile</span>
+            </div>
+
+            <ul class="text-xs text-slate-600 space-y-2.5 mb-6">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i> Assistenza per riduzione accise e imposte aziendali</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i> Report trimestrale consumi e picchi stagionali</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i> Linea diretta con ufficio commerciale a Cuneo</li>
+            </ul>
+          </div>
+
+          <button onclick="selectPlan('Gas Impresa', 'empresa')" class="w-full py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs shadow-md transition">
+            Attiva Gas Impresa
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. SIMULATORE BOLLETTA (CALCULATOR) -->
   <section id="calculadora-section" class="py-16 md:py-24 bg-white border-t border-red-100">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-2xl mx-auto mb-12">
-        <span class="text-xs font-black uppercase tracking-wider text-red-700 bg-red-100 px-3 py-1 rounded-full border border-red-200">Simulatore Gratuito</span>
+        <span class="text-xs font-black uppercase tracking-wider text-red-700 bg-red-100 px-3 py-1 rounded-full border border-red-200">Simulatore Bolletta Italiana</span>
         <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-3" id="calc-title">Calcola quanto puoi risparmiare</h2>
-        <p class="text-slate-600 text-sm mt-2" id="calc-sub">Muovi il selettore per impostare la tua spesa media attuale in Italia.</p>
+        <p class="text-slate-600 text-sm mt-2" id="calc-sub">Inserisci la tua spesa media mensile in Italia per vedere l'impatto stimato unendoti alle nostre tariffe comunitarie.</p>
       </div>
 
       <div class="bg-gradient-to-br from-red-50/40 via-white to-red-50/40 border-2 border-red-200 rounded-3xl p-6 sm:p-10 shadow-xl">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+          <!-- Inputs -->
           <div class="md:col-span-7 space-y-6">
             <div>
-              <label class="text-xs font-bold text-slate-700 block mb-2" id="calc-lbl-forn">Tipo di fornitura:</label>
-              <div class="grid grid-cols-2 gap-2">
-                <button type="button" id="btn-type-home" onclick="setProfile('home')" class="py-2.5 rounded-xl font-bold text-xs bg-red-700 text-white shadow-sm">🏠 Casa / Residenziale</button>
-                <button type="button" id="btn-type-biz" onclick="setProfile('biz')" class="py-2.5 rounded-xl font-bold text-xs bg-white text-slate-700 border border-slate-300">🏢 Negozio / Partita IVA</button>
+              <label class="text-xs font-bold uppercase tracking-wider text-slate-600 block mb-2" id="calc-lbl-forn">1. Per che tipo di fornitura?</label>
+              <div class="grid grid-cols-2 gap-2 p-1 bg-red-50 rounded-2xl border border-red-200">
+                <button type="button" id="btn-type-home" onclick="setProfile('home')" class="py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-red-700 text-white shadow-sm transition">🏠 Casa / Residenziale</button>
+                <button type="button" id="btn-type-biz" onclick="setProfile('biz')" class="py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-white text-slate-700 hover:text-slate-900 transition">🏢 Negozio / Partita IVA</button>
+              </div>
+            </div>
+
+            <div>
+              <label class="text-xs font-bold uppercase tracking-wider text-slate-600 block mb-2">2. Che servizi vuoi ottimizzare?</label>
+              <div class="grid grid-cols-3 gap-2">
+                <button type="button" id="svc-luz" onclick="setServiceType('luz')" class="p-3 rounded-2xl border text-center transition flex flex-col items-center gap-1 bg-white border-slate-200 text-slate-700 hover:border-red-400">
+                  <i data-lucide="zap" class="w-5 h-5 text-red-700"></i>
+                  <span class="text-xs font-bold">Solo Luce</span>
+                </button>
+                <button type="button" id="svc-gas" onclick="setServiceType('gas')" class="p-3 rounded-2xl border text-center transition flex flex-col items-center gap-1 bg-white border-slate-200 text-slate-700 hover:border-amber-400">
+                  <i data-lucide="flame" class="w-5 h-5 text-amber-700"></i>
+                  <span class="text-xs font-bold">Solo Gas</span>
+                </button>
+                <button type="button" id="svc-dual" onclick="setServiceType('dual')" class="p-3 rounded-2xl border text-center transition flex flex-col items-center gap-1 bg-red-100 border-red-600 text-red-950 font-bold ring-2 ring-red-400">
+                  <i data-lucide="layers" class="w-5 h-5 text-red-800"></i>
+                  <span class="text-xs font-bold">Luce + Gas</span>
+                </button>
               </div>
             </div>
 
             <div>
               <div class="flex justify-between items-center mb-2">
-                <label class="text-xs font-bold text-slate-700" id="calc-lbl-bill">La tua spesa attuale:</label>
-                <span class="text-2xl font-black text-red-800 bg-red-100 px-3 py-1 rounded-xl" id="bill-val">140 €/mese</span>
+                <label class="text-xs font-bold uppercase tracking-wider text-slate-600" id="calc-lbl-bill">3. Quanto paghi attualmente al mese in Italia?</label>
+                <span class="text-2xl font-black text-red-900 bg-red-50 border border-red-300 px-3.5 py-1 rounded-xl shadow-xs" id="bill-val">140 €/mese</span>
               </div>
               <input type="range" id="bill-slider" min="40" max="400" step="5" value="140" oninput="updateCalculator(this.value)" class="w-full h-3 bg-red-200 rounded-lg appearance-none cursor-pointer accent-red-700" />
+              <div class="flex justify-between text-[11px] text-slate-500 mt-1 font-medium" id="calc-range-limits">
+                <span>Min: 40€</span>
+                <span>Media: 120€ - 180€</span>
+                <span>Max: 400€+</span>
+              </div>
             </div>
           </div>
 
-          <div class="md:col-span-5 bg-gradient-to-br from-red-800 to-green-950 rounded-3xl p-6 text-white text-center shadow-xl">
-            <span class="text-xs font-black uppercase tracking-wider text-red-200" id="calc-box-title">Risparmio Stimato</span>
-            <div class="text-4xl sm:text-5xl font-black text-amber-300 my-2" id="save-month">-34 € <span class="text-sm text-red-200">/mese</span></div>
-            <div class="p-3 rounded-2xl bg-white/10 border border-white/20 my-4">
-              <div class="text-xs text-red-200 uppercase font-semibold" id="calc-box-annual">Risparmio all'anno:</div>
-              <div class="text-xl font-black text-white" id="save-year">~408 € / anno</div>
+          <!-- Calculation Display -->
+          <div class="md:col-span-5 bg-gradient-to-br from-red-800 via-red-700 to-green-950 rounded-3xl p-6 sm:p-7 text-white text-center shadow-xl relative overflow-hidden">
+            <span class="text-[11px] font-black uppercase tracking-wider text-white bg-white/20 px-3 py-1 rounded-full border border-white/30 inline-block mb-3" id="calc-box-title">
+              Il tuo Risparmio Stimato
+            </span>
+
+            <div class="my-2">
+              <p class="text-xs text-red-200">Risparmio mensile approssimativo</p>
+              <div class="text-4xl sm:text-5xl font-black text-amber-300" id="save-month">
+                -34 € <span class="text-sm font-medium text-red-200">/ mese</span>
+              </div>
             </div>
-            <a href="#contacto-section" class="w-full block py-3 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs uppercase tracking-wider shadow-lg transition" id="calc-btn-act">
-              Voglio questo Risparmio
-            </a>
+
+            <div class="my-4 p-3 rounded-2xl bg-white/15 border border-white/20 flex items-center justify-around text-center">
+              <div>
+                <p class="text-[10px] text-red-200 uppercase font-semibold">Risparmio Annuale</p>
+                <p class="text-lg font-black text-amber-300" id="save-year">~408 € / anno</p>
+              </div>
+              <div class="h-8 w-px bg-white/20"></div>
+              <div>
+                <p class="text-[10px] text-red-200 uppercase font-semibold">La tua nuova rata</p>
+                <p class="text-lg font-black text-white" id="new-bill">~106 € / mese</p>
+              </div>
+            </div>
+
+            <ul class="text-xs text-red-50 text-left space-y-1.5 mb-6 font-medium">
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-300 shrink-0"></i> Trasferimento 100% gratuito senza interruzione</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-300 shrink-0"></i> Senza vincoli di permanenza obbligatoria</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-300 shrink-0"></i> Assistenza diretta nella tua lingua su WhatsApp</li>
+            </ul>
+
+            <button onclick="applySavingsToContact()" class="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-black text-xs uppercase tracking-wider shadow-lg transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2" id="calc-btn-act">
+              <span>Voglio questo Risparmio</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact & Cuneo HQ -->
+  <!-- 8. GUIDA BOLLETTA ITALIANA (ARERA, VOLTURA & ANTI-TRUFFA) -->
+  <section id="guia-section" class="py-16 md:py-24 bg-white border-t border-red-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-100 border border-red-300 text-red-900 text-xs font-bold mb-3">
+          <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+          <span>Guida Pratica per i Marocchini in Italia</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900">
+          Come capire la tua <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-700 to-green-900">Bolletta Italiana</span>
+        </h2>
+        <p class="text-sm sm:text-base text-slate-600 mt-2">La burocrazia energetica in Italia può essere confusa. Qui ti spieghiamo l'essenziale in modo chiaro perché tu non debba mai pagare più del dovuto.</p>
+      </div>
+
+      <!-- Tab Buttons -->
+      <div class="flex justify-center mb-8">
+        <div class="inline-flex p-1.5 bg-red-50/70 rounded-2xl border border-red-200 gap-2 flex-wrap justify-center">
+          <button id="tab-btn-partes" onclick="switchGuideTab('partes')" class="px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-gradient-to-r from-red-700 to-green-900 text-white shadow-md transition">
+            1. Parti della Bolletta
+          </button>
+          <button id="tab-btn-tramites" onclick="switchGuideTab('tramites')" class="px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition">
+            2. Voltura vs Subentro vs Switch
+          </button>
+          <button id="tab-btn-seguridad" onclick="switchGuideTab('seguridad')" class="px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition">
+            3. Attenzione alle Truffe
+          </button>
+        </div>
+      </div>
+
+      <!-- Tab 1: Parti della Bolletta -->
+      <div id="tab-partes" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div class="lg:col-span-6 bg-white border-2 border-red-200 rounded-3xl p-6 shadow-xl space-y-4">
+          <div class="flex items-center justify-between pb-3 border-b border-red-100">
+            <span class="text-xs text-slate-500 font-mono">Fattura_Energia_Esempio.pdf</span>
+            <span class="text-[10px] font-black text-red-950 bg-red-100 px-2 py-0.5 rounded border border-red-300">ARERA Standard</span>
+          </div>
+
+          <div class="p-3.5 bg-red-50 rounded-2xl border border-red-200 text-xs">
+            <p class="text-red-950 font-bold">DATI FORNITURA / DATI DI FORNITURA:</p>
+            <p class="text-slate-700 mt-1">Codice POD: <span class="font-mono text-red-800 font-bold">IT001E12345678X</span> (La carta d'identità della luce)</p>
+            <p class="text-slate-700">Codice PDR: <span class="font-mono text-red-800 font-bold">01234567890123</span> (La carta d'identità del gas)</p>
+          </div>
+
+          <div class="p-3.5 bg-slate-50 rounded-2xl border border-slate-200 space-y-2 text-xs">
+            <p class="font-bold text-slate-800">Sintesi Importi Fatturati (Riepilogo):</p>
+            <div class="flex justify-between items-center p-2 rounded-xl bg-red-100/70 border border-red-300 text-red-950">
+              <div>
+                <span class="font-bold">1. Spesa per la materia energia</span>
+                <p class="text-[10px] text-red-800 font-semibold">★ L'unico punto negoziabile dove ti facciamo risparmiare</p>
+              </div>
+              <span class="font-black">48.50 €</span>
+            </div>
+            <div class="flex justify-between items-center p-2 rounded-xl bg-white border border-slate-200 text-slate-600">
+              <div>
+                <span>2. Spesa trasporto e gestione contatore</span>
+                <p class="text-[10px] text-slate-400">Regolato dallo Stato (uguale in tutte le aziende)</p>
+              </div>
+              <span>14.20 €</span>
+            </div>
+            <div class="flex justify-between items-center p-2 rounded-xl bg-white border border-slate-200 text-slate-600">
+              <div>
+                <span>3. Spesa per oneri di sistema</span>
+                <p class="text-[10px] text-slate-400">Costi fissi nazionali fissati per legge</p>
+              </div>
+              <span>8.90 €</span>
+            </div>
+            <div class="flex justify-between items-center p-2 rounded-xl bg-white border border-slate-200 text-slate-600">
+              <div>
+                <span>4. Imposte e IVA (10%)</span>
+                <p class="text-[10px] text-slate-400">Imposte statali italiane</p>
+              </div>
+              <span>7.16 €</span>
+            </div>
+          </div>
+
+          <div class="flex justify-between items-center p-3 bg-red-100 rounded-2xl border border-red-300">
+            <span class="font-black text-slate-900 text-sm">TOTALE DA PAGARE:</span>
+            <span class="text-xl font-black text-red-900">78.76 €</span>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 space-y-4">
+          <h3 class="text-xl font-black text-slate-900">Glossario Rapido della Bolletta</h3>
+          <p class="text-xs text-slate-600">I 4 termini chiave che ogni marocchino in Italia deve conoscere:</p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-xs">
+            <div class="p-4 rounded-2xl bg-white border border-red-200 shadow-xs">
+              <span class="font-black text-slate-900 text-sm block mb-1">POD</span>
+              <p class="font-bold text-red-800 mb-1">Carta identità luce</p>
+              <p class="text-slate-600">Codice unico che inizia con "IT", identifica il tuo contatore luce. Ti serve per volture e cambi gestore.</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-white border border-red-200 shadow-xs">
+              <span class="font-black text-slate-900 text-sm block mb-1">PDR</span>
+              <p class="font-bold text-red-800 mb-1">Carta identità gas</p>
+              <p class="text-slate-600">Codice numerico di 14 cifre per la fornitura di gas metano. Si trova sempre in prima pagina.</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-white border border-red-200 shadow-xs">
+              <span class="font-black text-slate-900 text-sm block mb-1">Oneri di Sistema</span>
+              <p class="font-bold text-red-800 mb-1">Costi fissi nazionali</p>
+              <p class="text-slate-600">Tariffe stabilite da ARERA e dallo Stato, uguali per qualsiasi fornitore in Italia.</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-white border border-red-200 shadow-xs">
+              <span class="font-black text-slate-900 text-sm block mb-1">Mercato Libero</span>
+              <p class="font-bold text-red-800 mb-1">Libera scelta del gestore</p>
+              <p class="text-slate-600">Il regime in cui scegli tu l'offerta più conveniente e la compagnia con il miglior servizio.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2: Voltura vs Subentro vs Switch -->
+      <div id="tab-tramites" class="hidden grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-3xl bg-white border-2 border-red-200 shadow-md">
+          <div class="p-3 rounded-2xl bg-red-100 text-red-800 inline-block mb-3"><i data-lucide="receipt" class="w-6 h-6"></i></div>
+          <h3 class="text-lg font-black text-slate-900 mb-2">1. Voltura (Cambio Titolare)</h3>
+          <p class="text-xs text-slate-600 leading-relaxed mb-4">Il contatore è già attivo e c'è luce o gas in casa. Si trasferisce solo il contratto a nome del nuovo inquilino.</p>
+          <div class="text-xs bg-red-50 p-3 rounded-xl border border-red-200 space-y-1">
+            <p class="font-bold text-red-950">Documenti necessari:</p>
+            <p class="text-slate-600">• Bolletta precedente o codice POD/PDR</p>
+            <p class="text-slate-600">• Codice Fiscale e Documento d'identità</p>
+            <p class="text-slate-600">• Lettura attuale dei numeri del contatore</p>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-3xl bg-white border-2 border-red-200 shadow-md">
+          <div class="p-3 rounded-2xl bg-red-100 text-red-800 inline-block mb-3"><i data-lucide="zap" class="w-6 h-6"></i></div>
+          <h3 class="text-lg font-black text-slate-900 mb-2">2. Subentro (Riattivazione)</h3>
+          <p class="text-xs text-slate-600 leading-relaxed mb-4">Il contatore esiste ma la fornitura è stata staccata dal vecchio inquilino. Richiede riattivazione tecnica.</p>
+          <div class="text-xs bg-red-50 p-3 rounded-xl border border-red-200 space-y-1">
+            <p class="font-bold text-red-950">Documenti necessari:</p>
+            <p class="text-slate-600">• Matricola o foto della targhetta contatore</p>
+            <p class="text-slate-600">• Codice Fiscale e contratto d'affitto</p>
+            <p class="text-slate-600">• Tempo previsto: 5-7 giorni lavorativi</p>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-3xl bg-white border-2 border-emerald-200 shadow-md">
+          <div class="p-3 rounded-2xl bg-emerald-100 text-emerald-800 inline-block mb-3"><i data-lucide="scale" class="w-6 h-6"></i></div>
+          <h3 class="text-lg font-black text-slate-900 mb-2">3. Cambio Fornitore (Switch)</h3>
+          <p class="text-xs text-slate-600 leading-relaxed mb-4">Sei con un'altra azienda (Enel, Eni, A2A, Edison, ecc.) e vuoi passare alle tariffe di Marocco Energy.</p>
+          <div class="text-xs bg-emerald-50 p-3 rounded-xl border border-emerald-200 space-y-1">
+            <p class="font-bold text-emerald-950">Vantaggi garantiti:</p>
+            <p class="text-slate-600">• 100% Gratuito per legge</p>
+            <p class="text-slate-600">• Zero interruzioni di luce o gas</p>
+            <p class="text-slate-600">• Nessun costo di recesso dal vecchio gestore</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 3: Attenzione alle Truffe -->
+      <div id="tab-seguridad" class="hidden p-8 rounded-3xl bg-white border-2 border-rose-200 shadow-lg">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="p-3 rounded-2xl bg-rose-100 text-rose-600"><i data-lucide="shield-alert" class="w-6 h-6"></i></div>
+          <div>
+            <h3 class="text-xl font-black text-slate-900">Attenzione al Telemarketing Aggressivo e alle Truffe in Italia!</h3>
+            <p class="text-xs text-rose-700 font-semibold">I consigli essenziali di sicurezza per proteggere la tua famiglia:</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm text-slate-700">
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-1.5">
+            <p class="font-bold text-slate-900 flex items-center gap-2">
+              <i data-lucide="alert-triangle" class="w-4 h-4 text-red-600 shrink-0"></i>
+              <span>"Chiamiamo da ARERA / Vi staccheranno il contatore":</span>
+            </p>
+            <p class="text-slate-600">FALSO. L'autorità ARERA non chiama MAI i singoli cittadini per proporre offerte. Chi lo fa sta mentendo per spingerti a firmare.</p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-1.5">
+            <p class="font-bold text-slate-900 flex items-center gap-2">
+              <i data-lucide="alert-triangle" class="w-4 h-4 text-red-600 shrink-0"></i>
+              <span>Non dire "SÌ" all'inizio della telefonata:</span>
+            </p>
+            <p class="text-slate-600">In Italia sono noti casi di registrazioni manipolate. Quando rispondi a numeri sconosciuti dì sempre "Pronto, chi parla?".</p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-1.5">
+            <p class="font-bold text-slate-900 flex items-center gap-2">
+              <i data-lucide="alert-triangle" class="w-4 h-4 text-red-600 shrink-0"></i>
+              <span>Non dettare il codice POD o PDR al telefono:</span>
+            </p>
+            <p class="text-slate-600">Con il solo codice POD e il tuo Codice Fiscale, un operatore scorretto può avviare il passaggio senza la tua firma.</p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 space-y-1.5">
+            <p class="font-bold text-emerald-900 flex items-center gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+              <span>Con Marocco Energy: chiarezza scritta nella tua lingua:</span>
+            </p>
+            <p class="text-slate-600">Ti inviamo prima tutto su WhatsApp o per email. Verifichi ogni euro e decidi in totale serenità.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. EQUIVALENZE DOCUMENTI MAROCCO VS ITALIA & FAQ -->
+  <section id="faq-docs-section" class="py-16 md:py-24 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-100 border border-red-300 text-red-900 text-xs font-bold mb-3">
+          <i data-lucide="help-circle" class="w-3.5 h-3.5"></i>
+          <span>Guida Documenti & Pratiche Ufficiali</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900">
+          Equivalenze Documenti: <span class="text-red-700">Marocco 🇲🇦</span> vs <span class="text-green-800">Italia 🇮🇹</span>
+        </h2>
+        <p class="text-sm sm:text-base text-slate-600 mt-2 max-w-2xl mx-auto">
+          Cosa significa ogni documento italiano, qual è l'equivalente marocchino e a cosa serve per attivare Luce e Gas.
+        </p>
+
+        <!-- Search input for documents -->
+        <div class="mt-6 max-w-md mx-auto">
+          <div class="relative">
+            <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+            <input type="text" id="doc-search-input" onkeyup="filterDocs(this.value)" placeholder="Cerca: CF, SPID, CIN, IBAN, Residenza..." class="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-300 rounded-xl text-xs focus:outline-none focus:border-red-600 focus:ring-2 focus:ring-red-100" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Docs Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="docs-grid">
+        <!-- 1. Codice Fiscale -->
+        <div class="doc-card bg-white p-5 rounded-3xl border-2 border-red-200 shadow-sm space-y-3" data-keywords="codice fiscale cf cin passaporto identita">
+          <div class="flex justify-between items-start">
+            <div class="flex items-center gap-2.5">
+              <div class="p-2 rounded-xl bg-red-100 text-red-800 font-bold text-xs">CF</div>
+              <div>
+                <span class="text-[10px] uppercase font-bold text-red-800 block">🇮🇹 Italia</span>
+                <h4 class="font-black text-slate-900 text-base">Codice Fiscale</h4>
+              </div>
+            </div>
+            <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-red-100 text-red-950 border border-red-300">Indispensabile</span>
+          </div>
+          <div class="p-2.5 rounded-xl bg-red-50 text-xs flex justify-between items-center">
+            <span class="text-slate-600">🇲🇦 Equivalente:</span>
+            <span class="font-bold text-red-900">Numero CIN / Identità Fiscale</span>
+          </div>
+          <p class="text-xs text-slate-600">Codice alfanumerico di 16 caratteri che identifica ogni persona fisica. Indispensabile per intestare qualsiasi utenza di luce, gas, affitto o lavoro.</p>
+        </div>
+
+        <!-- 2. SPID -->
+        <div class="doc-card bg-white p-5 rounded-3xl border-2 border-slate-200 shadow-sm space-y-3" data-keywords="spid identita digitale poste infocert gov">
+          <div class="flex justify-between items-start">
+            <div class="flex items-center gap-2.5">
+              <div class="p-2 rounded-xl bg-blue-100 text-blue-800 font-bold text-xs">SPID</div>
+              <div>
+                <span class="text-[10px] uppercase font-bold text-blue-800 block">🇮🇹 Italia</span>
+                <h4 class="font-black text-slate-900 text-base">Sistema Pubblico Identità Digitale</h4>
+              </div>
+            </div>
+            <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-950 border border-blue-300">Digitale</span>
+          </div>
+          <div class="p-2.5 rounded-xl bg-blue-50 text-xs flex justify-between items-center">
+            <span class="text-slate-600">🇲🇦 Equivalente:</span>
+            <span class="font-bold text-blue-900">Identità Digitale Nazionale (CNIE)</span>
+          </div>
+          <p class="text-xs text-slate-600">Credenziali digitali per accedere ai servizi pubblici (INPS, Agenzia Entrate, Comune). Utile ma non obbligatorio per firmare i contratti luce/gas con noi.</p>
+        </div>
+
+        <!-- 3. IBAN / RID Bancario -->
+        <div class="doc-card bg-white p-5 rounded-3xl border-2 border-slate-200 shadow-sm space-y-3" data-keywords="iban rid conto corrente revolut postepay banca">
+          <div class="flex justify-between items-start">
+            <div class="flex items-center gap-2.5">
+              <div class="p-2 rounded-xl bg-emerald-100 text-emerald-800 font-bold text-xs">IBAN</div>
+              <div>
+                <span class="text-[10px] uppercase font-bold text-emerald-800 block">🇮🇹 Italia</span>
+                <h4 class="font-black text-slate-900 text-base">IBAN / Addebito Diretto (SDD)</h4>
+              </div>
+            </div>
+            <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-950 border border-emerald-300">Consigliato</span>
+          </div>
+          <div class="p-2.5 rounded-xl bg-emerald-50 text-xs flex justify-between items-center">
+            <span class="text-slate-600">🇲🇦 Equivalente:</span>
+            <span class="font-bold text-emerald-900">RIB (Relevé d'Identité Bancaire)</span>
+          </div>
+          <p class="text-xs text-slate-600">Permette l'addebito automatico della bolletta sul conto o su carta Postepay Evolution/Revolut. Evita di pagare il deposito cauzionale (da 50€ a 150€).</p>
+        </div>
+
+        <!-- 4. Residenza -->
+        <div class="doc-card bg-white p-5 rounded-3xl border-2 border-slate-200 shadow-sm space-y-3" data-keywords="residenza certificato comune shahadat soukna casa affitto">
+          <div class="flex justify-between items-start">
+            <div class="flex items-center gap-2.5">
+              <div class="p-2 rounded-xl bg-amber-100 text-amber-800 font-bold text-xs">RES</div>
+              <div>
+                <span class="text-[10px] uppercase font-bold text-amber-800 block">🇮🇹 Italia</span>
+                <h4 class="font-black text-slate-900 text-base">Certificato di Residenza</h4>
+              </div>
+            </div>
+            <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-950 border border-amber-300">Anagrafe</span>
+          </div>
+          <div class="p-2.5 rounded-xl bg-amber-50 text-xs flex justify-between items-center">
+            <span class="text-slate-600">🇲🇦 Equivalente:</span>
+            <span class="font-bold text-amber-900">Shahadat Soukna (شهادة السكنى)</span>
+          </div>
+          <p class="text-xs text-slate-600">Se hai la residenza anagrafica nella casa, hai diritto alla tariffa agevolata "Domestico Residente", con meno imposte rispetto ai non residenti.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. TESTIMONIALS -->
+  <section class="py-16 md:py-24 bg-white border-t border-red-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs font-black uppercase tracking-wider text-red-700 bg-red-100 px-3 py-1 rounded-full border border-red-200">Testimonianze Reali</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-3">Connazionali che già risparmiano con noi</h2>
+        <p class="text-slate-600 text-sm mt-2">Da nord a sud in Italia, sempre più famiglie e attività scelgono Marocco Energy.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white border-2 border-red-100 hover:border-red-400 rounded-3xl p-6 shadow-sm transition">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 rounded-full bg-red-700 text-white flex items-center justify-center font-black text-sm">YB</div>
+            <div>
+              <h4 class="font-bold text-sm text-slate-900">Youssef B.</h4>
+              <p class="text-[11px] text-red-800 font-semibold">Milano (MI) • Casa</p>
+            </div>
+          </div>
+          <div class="text-amber-400 text-xs mb-2">★★★★★</div>
+          <p class="text-xs text-slate-600 italic">"Prima pagavo oltre 180€ al mese di luce con un vecchio contratto. Mi hanno spiegato tutto in arabo e ora pago circa 125€."</p>
+          <div class="mt-4 pt-3 border-t border-slate-100 text-xs font-bold text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-lg inline-block">
+            Risparmio: ~55€/mese
+          </div>
+        </div>
+
+        <div class="bg-white border-2 border-red-100 hover:border-red-400 rounded-3xl p-6 shadow-sm transition">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 rounded-full bg-red-700 text-white flex items-center justify-center font-black text-sm">FE</div>
+            <div>
+              <h4 class="font-bold text-sm text-slate-900">Fatima E.</h4>
+              <p class="text-[11px] text-red-800 font-semibold">Torino (TO) • Luce + Gas</p>
+            </div>
+          </div>
+          <div class="text-amber-400 text-xs mb-2">★★★★★</div>
+          <p class="text-xs text-slate-600 italic">"Zero telefonate aggressive e persone gentili che capiscono la nostra lingua. Cambio fornitore fatto in 5 minuti su WhatsApp."</p>
+          <div class="mt-4 pt-3 border-t border-slate-100 text-xs font-bold text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-lg inline-block">
+            Risparmio: ~420€/anno
+          </div>
+        </div>
+
+        <div class="bg-white border-2 border-red-100 hover:border-red-400 rounded-3xl p-6 shadow-sm transition">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 rounded-full bg-red-700 text-white flex items-center justify-center font-black text-sm">RE</div>
+            <div>
+              <h4 class="font-bold text-sm text-slate-900">Rachid E.</h4>
+              <p class="text-[11px] text-red-800 font-semibold">Bologna (BO) • Macelleria Halal</p>
+            </div>
+          </div>
+          <div class="text-amber-400 text-xs mb-2">★★★★★</div>
+          <p class="text-xs text-slate-600 italic">"Con 3 frigoriferi industriali la bolletta della mia macelleria era un incubo. Con la tariffa business ho tagliato più del 25%."</p>
+          <div class="mt-4 pt-3 border-t border-slate-100 text-xs font-bold text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-lg inline-block">
+            Risparmio: ~1.200€/anno
+          </div>
+        </div>
+
+        <div class="bg-white border-2 border-red-100 hover:border-red-400 rounded-3xl p-6 shadow-sm transition">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 rounded-full bg-red-700 text-white flex items-center justify-center font-black text-sm">AM</div>
+            <div>
+              <h4 class="font-bold text-sm text-slate-900">Amina M.</h4>
+              <p class="text-[11px] text-red-800 font-semibold">Roma (RM) • Casa</p>
+            </div>
+          </div>
+          <div class="text-amber-400 text-xs mb-2">★★★★★</div>
+          <p class="text-xs text-slate-600 italic">"Avevo paura di rimanere senza luce durante la voltura. Tutto è avvenuto senza alcun distacco. Bravi davvero!"</p>
+          <div class="mt-4 pt-3 border-t border-slate-100 text-xs font-bold text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-lg inline-block">
+            Voltura: Eseguita in 4gg
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. CONTACT & CUNEO HEADQUARTERS -->
   <section id="contacto-section" class="py-16 md:py-24 bg-slate-50 border-t border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-12">
-        <span class="text-xs font-black uppercase tracking-wider text-red-700 bg-red-100 px-3 py-1 rounded-full border border-red-200">Contatto Diretto</span>
+        <span class="text-xs font-black uppercase tracking-wider text-red-700 bg-red-100 px-3 py-1 rounded-full border border-red-200">Assistenza & Consulenza</span>
         <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-3" id="contact-title">Parla con noi senza impegno</h2>
-        <p class="text-slate-600 text-sm mt-2" id="contact-sub">Ti rispondiamo subito in arabo o italiano da Cuneo (Piemonte).</p>
+        <p class="text-slate-600 text-sm mt-2" id="contact-sub">Compila il modulo o scrivici direttamente su WhatsApp. Il nostro team di Cuneo ti guiderà passo dopo passo.</p>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        <div class="lg:col-span-7 bg-white p-8 rounded-3xl border-2 border-red-200 shadow-lg">
+        <!-- Form -->
+        <div class="lg:col-span-7 bg-white p-8 rounded-3xl border-2 border-red-200 shadow-xl">
           <form onsubmit="handleContactSubmit(event)" class="space-y-4">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
@@ -224,32 +890,51 @@
               </div>
             </div>
 
-            <div>
-              <label class="text-xs font-bold text-slate-700 block mb-1">Email *</label>
-              <input type="email" required id="c-email" placeholder="esempio@email.com" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs focus:bg-white focus:outline-none focus:border-red-600" />
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="text-xs font-bold text-slate-700 block mb-1">Email *</label>
+                <input type="email" required id="c-email" placeholder="esempio@email.com" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs focus:bg-white focus:outline-none focus:border-red-600" />
+              </div>
+              <div>
+                <label class="text-xs font-bold text-slate-700 block mb-1">Servizio Richiesto</label>
+                <select id="c-service" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs focus:bg-white focus:outline-none focus:border-red-600">
+                  <option value="dual">⚡🔥 Luce + Gas (Consigliato)</option>
+                  <option value="luz">⚡ Solo Luce</option>
+                  <option value="gas">🔥 Solo Gas</option>
+                  <option value="empresa">🏢 Attività / Partita IVA</option>
+                </select>
+              </div>
             </div>
 
             <div>
-              <label class="text-xs font-bold text-slate-700 block mb-1">Messaggio / Richiesta</label>
-              <textarea id="c-msg" rows="3" placeholder="Vorrei informazioni per la bolletta di luce/gas..." class="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs focus:bg-white focus:outline-none focus:border-red-600"></textarea>
+              <label class="text-xs font-bold text-slate-700 block mb-1">Allega bolletta (Opzionale per analisi immediata)</label>
+              <input type="file" id="c-file" accept="image/*,.pdf" class="w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-red-50 file:text-red-700 hover:file:bg-red-100" />
+            </div>
+
+            <div>
+              <label class="text-xs font-bold text-slate-700 block mb-1">Messaggio / Note</label>
+              <textarea id="c-msg" rows="3" placeholder="Vorrei sapere quanto posso risparmiare sulla mia fornitura..." class="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs focus:bg-white focus:outline-none focus:border-red-600"></textarea>
             </div>
 
             <div class="pt-2 flex flex-col sm:flex-row gap-3">
-              <button type="submit" class="flex-1 py-3 bg-gradient-to-r from-red-700 to-green-900 hover:from-red-600 hover:to-green-800 text-white font-black text-xs rounded-xl shadow-md transition">
-                Invia Messaggio
+              <button type="submit" class="flex-1 py-3 bg-gradient-to-r from-red-700 to-green-900 hover:from-red-600 hover:to-green-800 text-white font-black text-xs rounded-xl shadow-md transition flex items-center justify-center gap-2">
+                <i data-lucide="send" class="w-4 h-4"></i>
+                <span>Invia Messaggio</span>
               </button>
               <button type="button" onclick="sendViaWhatsApp()" class="px-5 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-xl shadow-md transition flex items-center justify-center gap-2">
                 <i data-lucide="message-circle" class="w-4 h-4"></i>
                 <span>Scrivici su WhatsApp</span>
               </button>
             </div>
-            <div id="contact-success" class="hidden p-3 bg-emerald-50 border border-emerald-300 text-emerald-800 rounded-xl text-xs font-bold text-center">
-              Grazie! Ti contatteremo a breve.
+
+            <div id="contact-success" class="hidden p-4 bg-emerald-50 border border-emerald-300 text-emerald-800 rounded-2xl text-xs font-bold text-center">
+              ✓ Grazie! Il tuo messaggio è stato inviato. Ti ricontatteremo a brevissimo.
             </div>
           </form>
         </div>
 
-        <div class="lg:col-span-5 bg-white p-8 rounded-3xl border-2 border-red-200 shadow-lg space-y-5 text-xs text-slate-700">
+        <!-- Cuneo HQ Details -->
+        <div class="lg:col-span-5 bg-white p-8 rounded-3xl border-2 border-red-200 shadow-xl space-y-5 text-xs text-slate-700">
           <div class="flex items-center gap-3 pb-4 border-b border-slate-200">
             <img src="logo-definitivo.png" onerror="this.onerror=null; this.src='public/logo-definitivo.png';" alt="Marocco Energy" class="h-12 w-auto object-contain" />
             <div>
@@ -276,99 +961,280 @@
           <div class="pt-2 border-t border-slate-200 text-[11px] text-slate-500">
             🕒 Orari: Lunedì - Venerdì 9:00 - 18:00
           </div>
+          <div class="p-3 bg-red-50 rounded-xl border border-red-200 text-red-950 font-medium">
+            Assicuriamo assistenza continua e pratiche attive per tutto il territorio italiano (Milano, Torino, Roma, Bologna, ecc.).
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-slate-950 text-red-200 py-10 border-t-4 border-red-700 text-xs">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
-      <div>
-        <p>© 2026 <strong>Marocco Energy</strong> — FraStel Corporation Group. Tutti i diritti riservati.</p>
-        <p class="text-red-400 mt-1">Via Bartolomeo Bruni 7, 12100 Cuneo (CN) | P.IVA & Assistenza per tutta Italia.</p>
+  <!-- 12. FOOTER -->
+  <footer class="bg-slate-950 text-red-200 pt-12 pb-8 border-t-4 border-red-700 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-10 border-b border-red-950">
+        <div class="space-y-3 md:col-span-2">
+          <img src="logo-definitivo.png" onerror="this.onerror=null; this.src='public/logo-definitivo.png';" alt="Marocco Energy" class="h-10 w-auto object-contain bg-white/95 p-1 rounded-lg" />
+          <p class="text-slate-400 text-xs max-w-md">
+            Marocco Energy è l'iniziativa di FraStel Corporation Group dedicata a garantire trasparenza, risparmio e assistenza madrelingua per luce e gas a tutti i cittadini marocchini residenti in Italia.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-white uppercase text-xs mb-3">Navigazione</h4>
+          <ul class="space-y-2">
+            <li><a href="#luz-section" class="hover:text-white">Offerte Luce</a></li>
+            <li><a href="#gas-section" class="hover:text-white">Offerte Gas</a></li>
+            <li><a href="#calculadora-section" class="hover:text-white">Simulatore Risparmio</a></li>
+            <li><a href="#guia-section" class="hover:text-white">Guida Bolletta</a></li>
+            <li><a href="#faq-docs-section" class="hover:text-white">Documenti & FAQ</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-white uppercase text-xs mb-3">Legale & Privacy</h4>
+          <ul class="space-y-2">
+            <li><button onclick="openLegalModal('privacy')" class="hover:text-white">Informativa Privacy (GDPR)</button></li>
+            <li><button onclick="openLegalModal('cookies')" class="hover:text-white">Cookie Policy</button></li>
+            <li><button onclick="openLegalModal('terms')" class="hover:text-white">Termini di Servizio</button></li>
+          </ul>
+        </div>
       </div>
-      <div class="flex gap-4 font-semibold text-white">
-        <a href="https://wa.me/393933192262" target="_blank" class="hover:text-emerald-400">WhatsApp</a>
-        <a href="tel:+3901721860282" class="hover:text-amber-400">0172 1860282</a>
-        <a href="mailto:info@maroccoenergy.it" class="hover:text-red-400">Email</a>
+
+      <div class="pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-slate-500 text-[11px]">
+        <p>© 2026 <strong>Marocco Energy</strong> — FraStel Corporation Group. Via Bartolomeo Bruni 7, 12100 Cuneo (CN).</p>
+        <p>Progettato con ❤️ per la comunità marocchina in Italia.</p>
       </div>
     </div>
   </footer>
 
-  <!-- Floating WhatsApp -->
-  <a href="https://wa.me/393933192262?text=Ciao%20Marocco%20Energy,%20vorrei%20informazioni%20sulle%20tariffe." target="_blank" class="fixed bottom-6 right-6 z-50 p-4 bg-emerald-600 hover:bg-emerald-500 text-white rounded-full shadow-2xl transition transform hover:scale-105 flex items-center gap-2">
+  <!-- 13. FLOATING WHATSAPP BUTTON -->
+  <a href="https://wa.me/393933192262?text=Ciao%20Marocco%20Energy,%20vorrei%20informazioni%20sulle%20tariffe." target="_blank" class="fixed bottom-6 right-6 z-40 p-4 bg-emerald-600 hover:bg-emerald-500 text-white rounded-full shadow-2xl transition transform hover:scale-105 flex items-center gap-2">
     <i data-lucide="message-circle" class="w-6 h-6"></i>
     <span class="hidden sm:inline font-bold text-xs">WhatsApp 🇲🇦</span>
   </a>
 
-  <!-- Audit Modal -->
+  <!-- 14. AUDIT BOLLETTA MODAL -->
   <div id="audit-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/60 backdrop-blur-xs">
     <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-lg w-full border-2 border-red-200 relative shadow-2xl">
       <button onclick="closeAuditModal()" class="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-800">✕</button>
-      <h3 class="text-xl font-black text-slate-900">Audit Gratuito Bolletta</h3>
-      <p class="text-xs text-slate-600 mt-1">Inviaci la tua bolletta per scoprire se stai pagando più del dovuto.</p>
-      
+      <div class="flex items-center gap-2 mb-2">
+        <i data-lucide="file-text" class="w-5 h-5 text-red-700"></i>
+        <h3 class="text-xl font-black text-slate-900">Audit Gratuito Bolletta</h3>
+      </div>
+      <p class="text-xs text-slate-600">Inviaci la tua bolletta: ti diciamo in 24 ore se stai pagando un sovrapprezzo in Italia.</p>
+
       <div class="my-4 p-6 border-2 border-dashed border-red-300 rounded-2xl text-center bg-red-50/50">
-        <i data-lucide="upload" class="w-8 h-8 text-red-700 mx-auto mb-2"></i>
-        <p class="text-xs font-bold text-slate-800">Carica una foto o PDF della bolletta</p>
-        <input type="file" class="mt-2 text-xs" />
+        <i data-lucide="upload-cloud" class="w-8 h-8 text-red-700 mx-auto mb-2"></i>
+        <p class="text-xs font-bold text-slate-800">Carica una foto o PDF della tua bolletta</p>
+        <input type="file" id="audit-file-input" class="mt-2 text-xs" />
       </div>
 
-      <a href="https://wa.me/393933192262?text=Ciao,%20vorrei%20inviare%20la%20mia%20bolletta%20per%20un%20audit%20gratuito." target="_blank" class="w-full py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-2">
-        <i data-lucide="message-circle" class="w-4 h-4"></i>
-        <span>Invia direttamente su WhatsApp</span>
-      </a>
+      <div class="space-y-3">
+        <input type="text" id="a-name" placeholder="Il tuo Nome e Cognome" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs" />
+        <input type="tel" id="a-phone" placeholder="Telefono / WhatsApp" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs" />
+      </div>
+
+      <div class="mt-4 pt-2 flex flex-col gap-2">
+        <button onclick="handleAuditSubmit()" class="w-full py-3 bg-gradient-to-r from-red-700 to-green-900 hover:from-red-600 hover:to-green-800 text-white font-bold text-xs rounded-xl shadow-md transition">
+          Richiedi Analisi Gratuita
+        </button>
+        <a href="https://wa.me/393933192262?text=Ciao,%20vorrei%20inviare%20la%20mia%20bolletta%20per%20un%20audit%20gratuito." target="_blank" class="w-full py-2.5 bg-emerald-50 border border-emerald-300 text-emerald-800 font-bold text-xs rounded-xl flex items-center justify-center gap-2 hover:bg-emerald-100 transition">
+          <i data-lucide="message-circle" class="w-4 h-4 text-emerald-600"></i>
+          <span>O invia la foto direttamente su WhatsApp</span>
+        </a>
+      </div>
     </div>
   </div>
 
+  <!-- 15. LEGAL MODAL (PRIVACY / COOKIES / TERMS) -->
+  <div id="legal-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/60 backdrop-blur-xs">
+    <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-xl w-full border-2 border-red-200 relative shadow-2xl max-h-[85vh] overflow-y-auto">
+      <button onclick="closeLegalModal()" class="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-800">✕</button>
+      <h3 class="text-xl font-black text-slate-900 mb-3" id="legal-title">Informativa</h3>
+      <div class="text-xs text-slate-600 space-y-3 leading-relaxed" id="legal-body"></div>
+      <div class="pt-4 border-t border-slate-200 mt-4 text-right">
+        <button onclick="closeLegalModal()" class="px-5 py-2 bg-red-700 text-white font-bold text-xs rounded-xl">Chiudi</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 16. VANILLA JAVASCRIPT ENGINE (NO FRAMEWORK REQUIRED) -->
   <script>
-    // Initialize Lucide icons
+    // Initialize icons
     lucide.createIcons();
 
     let currentProfile = 'home';
+    let currentService = 'dual';
+
+    function toggleMobileMenu() {
+      const m = document.getElementById('mobile-menu');
+      m.classList.toggle('hidden');
+    }
 
     function setProfile(p) {
       currentProfile = p;
       const slider = document.getElementById('bill-slider');
       const btnHome = document.getElementById('btn-type-home');
       const btnBiz = document.getElementById('btn-type-biz');
+      const rangeLimits = document.getElementById('calc-range-limits');
 
       if (p === 'home') {
-        btnHome.className = "py-2.5 rounded-xl font-bold text-xs bg-red-700 text-white shadow-sm";
-        btnBiz.className = "py-2.5 rounded-xl font-bold text-xs bg-white text-slate-700 border border-slate-300";
+        btnHome.className = "py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-red-700 text-white shadow-sm transition";
+        btnBiz.className = "py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-white text-slate-700 hover:text-slate-900 transition";
         slider.min = "40";
         slider.max = "400";
         slider.step = "5";
         slider.value = "140";
+        rangeLimits.innerHTML = "<span>Min: 40€</span><span>Media: 120€ - 180€</span><span>Max: 400€+</span>";
       } else {
-        btnBiz.className = "py-2.5 rounded-xl font-bold text-xs bg-red-700 text-white shadow-sm";
-        btnHome.className = "py-2.5 rounded-xl font-bold text-xs bg-white text-slate-700 border border-slate-300";
+        btnBiz.className = "py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-red-700 text-white shadow-sm transition";
+        btnHome.className = "py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-white text-slate-700 hover:text-slate-900 transition";
         slider.min = "150";
         slider.max = "1800";
         slider.step = "25";
         slider.value = "450";
+        rangeLimits.innerHTML = "<span>Min: 150€</span><span>Media: 500€ - 900€</span><span>Max: 1800€+</span>";
       }
+      updateCalculator(slider.value);
+    }
+
+    function setServiceType(s) {
+      currentService = s;
+      const sLuz = document.getElementById('svc-luz');
+      const sGas = document.getElementById('svc-gas');
+      const sDual = document.getElementById('svc-dual');
+
+      const defaultClass = "p-3 rounded-2xl border text-center transition flex flex-col items-center gap-1 bg-white border-slate-200 text-slate-700 hover:border-red-400";
+      const activeLuz = "p-3 rounded-2xl border text-center transition flex flex-col items-center gap-1 bg-red-100 border-red-600 text-red-950 font-bold ring-2 ring-red-400";
+      const activeGas = "p-3 rounded-2xl border text-center transition flex flex-col items-center gap-1 bg-amber-100 border-amber-600 text-amber-950 font-bold ring-2 ring-amber-400";
+      const activeDual = "p-3 rounded-2xl border text-center transition flex flex-col items-center gap-1 bg-red-100 border-red-600 text-red-950 font-bold ring-2 ring-red-400";
+
+      sLuz.className = s === 'luz' ? activeLuz : defaultClass;
+      sGas.className = s === 'gas' ? activeGas : defaultClass;
+      sDual.className = s === 'dual' ? activeDual : defaultClass;
+
+      const slider = document.getElementById('bill-slider');
       updateCalculator(slider.value);
     }
 
     function updateCalculator(val) {
       document.getElementById('bill-val').innerText = val + ' €/mese';
-      const pct = currentProfile === 'biz' ? 0.26 : 0.24;
+      let pct = 0.18;
+      if (currentProfile === 'biz') pct = 0.26;
+      else if (currentService === 'dual') pct = 0.24;
+      else if (currentService === 'gas') pct = 0.20;
+      else if (currentService === 'luz') pct = 0.18;
+
       const savingMonth = Math.round(val * pct);
       const savingYear = savingMonth * 12;
-      document.getElementById('save-month').innerHTML = `-${savingMonth} € <span class="text-sm text-red-200">/mese</span>`;
-      document.getElementById('save-year').innerText = `~${savingYear} € / anno`;
+      const newBillVal = Math.max(20, val - savingMonth);
+
+      document.getElementById('save-month').innerHTML = '-' + savingMonth + ' € <span class="text-sm font-medium text-red-200">/ mese</span>';
+      document.getElementById('save-year').innerText = '~' + savingYear + ' € / anno';
+      document.getElementById('new-bill').innerText = '~' + newBillVal + ' € / mese';
+    }
+
+    function applySavingsToContact() {
+      const sliderVal = document.getElementById('bill-slider').value;
+      const targetService = currentProfile === 'biz' ? 'empresa' : currentService;
+      document.getElementById('c-service').value = targetService;
+      document.getElementById('c-msg').value = "Ciao Marocco Energy, ho effettuato la simulazione: spendo circa " + sliderVal + "€ al mese e vorrei ottenere il risparmio stimato. Contattatemi per favore.";
+      
+      const el = document.getElementById('contacto-section');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function selectPlan(planName, serviceCategory) {
+      document.getElementById('c-service').value = serviceCategory;
+      document.getElementById('c-msg').value = "Salve, vorrei attivare l'offerta '" + planName + "'. Attendo vostre istruzioni.";
+      const el = document.getElementById('contacto-section');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function switchGuideTab(tab) {
+      document.getElementById('tab-partes').classList.add('hidden');
+      document.getElementById('tab-tramites').classList.add('hidden');
+      document.getElementById('tab-seguridad').classList.add('hidden');
+
+      const btnP = document.getElementById('tab-btn-partes');
+      const btnT = document.getElementById('tab-btn-tramites');
+      const btnS = document.getElementById('tab-btn-seguridad');
+
+      const inactive = "px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition";
+      const active = "px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-gradient-to-r from-red-700 to-green-900 text-white shadow-md transition";
+
+      btnP.className = inactive;
+      btnT.className = inactive;
+      btnS.className = inactive;
+
+      if (tab === 'partes') {
+        document.getElementById('tab-partes').classList.remove('hidden');
+        btnP.className = active;
+      } else if (tab === 'tramites') {
+        document.getElementById('tab-tramites').classList.remove('hidden');
+        btnT.className = active;
+      } else if (tab === 'seguridad') {
+        document.getElementById('tab-seguridad').classList.remove('hidden');
+        btnS.className = active;
+      }
+      lucide.createIcons();
+    }
+
+    function filterDocs(query) {
+      const q = (query || '').toLowerCase().trim();
+      const cards = document.querySelectorAll('.doc-card');
+      cards.forEach(card => {
+        const text = (card.getAttribute('data-keywords') || '') + ' ' + card.innerText.toLowerCase();
+        if (!q || text.includes(q)) {
+          card.classList.remove('hidden-card');
+        } else {
+          card.classList.add('hidden-card');
+        }
+      });
     }
 
     function openAuditModal() {
       const m = document.getElementById('audit-modal');
       m.classList.remove('hidden');
       m.classList.add('flex');
+      lucide.createIcons();
     }
 
     function closeAuditModal() {
       const m = document.getElementById('audit-modal');
+      m.classList.add('hidden');
+      m.classList.remove('flex');
+    }
+
+    function handleAuditSubmit() {
+      const name = document.getElementById('a-name').value || 'Un connazionale';
+      alert('Grazie ' + name + '! Abbiamo ricevuto la tua richiesta di audit. Ti ricontatteremo a breve.');
+      closeAuditModal();
+    }
+
+    function openLegalModal(type) {
+      const m = document.getElementById('legal-modal');
+      const title = document.getElementById('legal-title');
+      const body = document.getElementById('legal-body');
+
+      if (type === 'privacy') {
+        title.innerText = "Informativa sulla Privacy (GDPR)";
+        body.innerHTML = "<p><strong>Titolare del trattamento:</strong> Marocco Energy - FraStel Corporation Group, Via Bartolomeo Bruni 7, 12100 Cuneo (CN), email: info@maroccoenergy.it.</p><p>I dati forniti nei moduli (nome, telefono, email, bolletta) sono trattati unicamente al fine di erogare la consulenza richiesta e stimare il risparmio sulle bollette di luce e gas.</p><p>I dati non saranno mai venduti a terzi per scopi di telemarketing o spam. Ai sensi del Regolamento UE 2016/679 (GDPR), puoi richiedere in ogni momento la cancellazione dei tuoi dati scrivendo a info@maroccoenergy.it.</p>";
+      } else if (type === 'cookies') {
+        title.innerText = "Cookie Policy";
+        body.innerHTML = "<p>Questo sito web utilizza esclusivamente cookie tecnici essenziali per consentire la corretta navigazione e memorizzare le preferenze di lingua e calcolo.</p><p>Non utilizziamo cookie di profilazione o tracciamento pubblicitario invasivo.</p>";
+      } else if (type === 'terms') {
+        title.innerText = "Termini e Condizioni di Servizio";
+        body.innerHTML = "<p>Marocco Energy svolge attività di consulenza energetica e intermediazione contrattuale per consentire ai clienti di accedere a tariffe di acquisto di gruppo vantaggiose.</p><p>L'attivazione formale della fornitura è regolata dalle normative ARERA vigenti in Italia e dalle condizioni generali del fornitore accreditato prescelto.</p>";
+      }
+
+      m.classList.remove('hidden');
+      m.classList.add('flex');
+    }
+
+    function closeLegalModal() {
+      const m = document.getElementById('legal-modal');
       m.classList.add('hidden');
       m.classList.remove('flex');
     }
@@ -381,9 +1247,10 @@
     function sendViaWhatsApp() {
       const name = document.getElementById('c-name').value || '';
       const phone = document.getElementById('c-phone').value || '';
-      const msg = document.getElementById('c-msg').value || '';
-      const text = encodeURIComponent(`Ciao Marocco Energy!\nNome: ${name}\nTelefono: ${phone}\nMessaggio: ${msg}`);
-      window.open(`https://wa.me/393933192262?text=${text}`, '_blank');
+      const service = document.getElementById('c-service').value || 'Generale';
+      const msg = document.getElementById('c-msg').value || 'Vorrei maggiori informazioni sulle tariffe energetiche.';
+      const text = encodeURIComponent("Ciao Marocco Energy!\nNome: " + name + "\nTelefono: " + phone + "\nServizio: " + service + "\nMessaggio: " + msg);
+      window.open("https://wa.me/393933192262?text=" + text, '_blank');
     }
 
     function setLanguage(lang) {
@@ -391,33 +1258,44 @@
       document.documentElement.lang = lang;
       document.documentElement.dir = isAr ? 'rtl' : 'ltr';
 
-      document.getElementById('btn-lang-it').className = isAr ? "px-2.5 py-1 text-xs font-bold rounded-lg text-slate-600 hover:text-red-800" : "px-2.5 py-1 text-xs font-bold rounded-lg bg-red-700 text-white shadow-xs";
-      document.getElementById('btn-lang-ar').className = isAr ? "px-2.5 py-1 text-xs font-bold rounded-lg bg-red-700 text-white shadow-xs" : "px-2.5 py-1 text-xs font-bold rounded-lg text-slate-600 hover:text-red-800";
+      const btnIt = document.getElementById('btn-lang-it');
+      const btnAr = document.getElementById('btn-lang-ar');
+
+      btnIt.className = isAr ? "px-2.5 py-1 text-xs font-black rounded-lg text-slate-600 hover:text-red-800 transition" : "px-2.5 py-1 text-xs font-black rounded-lg bg-red-700 text-white shadow-xs transition";
+      btnAr.className = isAr ? "px-2.5 py-1 text-xs font-black rounded-lg bg-red-700 text-white shadow-xs transition" : "px-2.5 py-1 text-xs font-black rounded-lg text-slate-600 hover:text-red-800 transition";
 
       if (isAr) {
-        document.getElementById('topbar-txt').innerText = "🇲🇦 خدمات الكهرباء والغاز للجالية المغربية في إيطاليا";
+        document.getElementById('t-topbar').innerText = "🇲🇦 خدمات الكهرباء والغاز للجالية المغربية في إيطاليا";
         document.getElementById('nav-luz').innerText = "عروض الكهرباء";
         document.getElementById('nav-gas').innerText = "عروض الغاز";
         document.getElementById('nav-calc').innerText = "محاكي التوفير";
         document.getElementById('nav-guia').innerText = "دليل الفاتورة";
-        document.getElementById('nav-faq').innerText = "الوثائق والأسئلة";
+        document.getElementById('nav-docs').innerText = "الوثائق والأسئلة";
         document.getElementById('nav-contact').innerText = "اتصل بنا";
         document.getElementById('btn-audit-nav').innerText = "أرسل الفاتورة";
         document.getElementById('hero-badge').innerText = "أول خدمة طاقة في إيطاليا مخصصة للجالية المغربية";
         document.getElementById('hero-title').innerHTML = "كهرباء وغاز بأسعار عادلة. <br/><span class='text-transparent bg-clip-text bg-gradient-to-r from-red-700 via-red-600 to-green-900'>نتحدث لغتكم.</span>";
-        document.getElementById('hero-sub').innerText = "نحمي العائلات والتجار المغاربة في إيطاليا من الفواتير المرتفعة والمكالمات الاحتيالية.";
+        document.getElementById('hero-sub').innerText = "نحمي العائلات والتجار المغاربة في إيطاليا من الفواتير المرتفعة والشروط المخفية والمكالمات الاحتيالية.";
         document.getElementById('hero-btn-calc').innerText = "احسب توفيرك الآن";
         document.getElementById('hero-btn-audit').innerText = "فحص مجاني للفاتورة";
         document.getElementById('hero-pill-1').innerText = "100% بدون أي انقطاع";
         document.getElementById('hero-pill-2').innerText = "بدون أي التزام إجباري";
         document.getElementById('hero-pill-3').innerText = "مساعدة بالعربية والإيطالية";
+        document.getElementById('stat-1').innerText = "عائلة مشتركة معنا";
+        document.getElementById('stat-2').innerText = "محل وتجارة مسجلة";
+        document.getElementById('stat-3').innerText = "متوسط التوفير السنوي";
+        document.getElementById('stat-4').innerText = "تقييم ورضا المشتركين";
+        document.getElementById('calc-title').innerText = "احسب كم يمكنك توفيره على فاتورتك";
+        document.getElementById('calc-sub').innerText = "أدخل مصروفك الشهري في إيطاليا لترى الأثر المالي الحقيقي مع تعرفتنا الجماعية.";
+        document.getElementById('calc-box-title').innerText = "توفيرك المالي المتوقع";
+        document.getElementById('calc-btn-act').innerHTML = "<span>أريد هذا التوفير الآن</span>";
       } else {
-        document.getElementById('topbar-txt').innerText = "🇲🇦 Energia e Gas per la Comunità Marocchina in Italia";
+        document.getElementById('t-topbar').innerText = "🇲🇦 Energia e Gas per la Comunità Marocchina in Italia";
         document.getElementById('nav-luz').innerText = "Offerte Luce";
         document.getElementById('nav-gas').innerText = "Offerte Gas";
         document.getElementById('nav-calc').innerText = "Simulatore";
         document.getElementById('nav-guia').innerText = "Guida Bolletta";
-        document.getElementById('nav-faq').innerText = "Documenti & FAQ";
+        document.getElementById('nav-docs').innerText = "Documenti & FAQ";
         document.getElementById('nav-contact').innerText = "Contatto";
         document.getElementById('btn-audit-nav').innerText = "Invia Bolletta";
         document.getElementById('hero-badge').innerText = "Il 1° servizio energia in Italia pensato per la Comunità Marocchina";
@@ -428,7 +1306,16 @@
         document.getElementById('hero-pill-1').innerText = "100% Senza Interruzione";
         document.getElementById('hero-pill-2').innerText = "Zero Permanenza Minima";
         document.getElementById('hero-pill-3').innerText = "Assistenza in Arabo & Italiano";
+        document.getElementById('stat-1').innerText = "Famiglie Iscritte";
+        document.getElementById('stat-2').innerText = "Negozi & P.IVA";
+        document.getElementById('stat-3').innerText = "Risparmio Medio Stimato";
+        document.getElementById('stat-4').innerText = "Soddisfazione Comunità";
+        document.getElementById('calc-title').innerText = "Calcola quanto puoi risparmiare";
+        document.getElementById('calc-sub').innerText = "Inserisci la tua spesa media mensile in Italia per vedere l'impatto stimato unendoti alle nostre tariffe comunitarie.";
+        document.getElementById('calc-box-title').innerText = "Il tuo Risparmio Stimato";
+        document.getElementById('calc-btn-act').innerHTML = "<span>Voglio questo Risparmio</span><i data-lucide='arrow-right' class='w-4 h-4'></i>";
       }
+      lucide.createIcons();
     }
   </script>
 </body>
