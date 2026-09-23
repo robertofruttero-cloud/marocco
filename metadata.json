@@ -1,0 +1,6 @@
+{
+  "name": "Marocco Energy",
+  "description": "Luce e Gas in Italia per i cittadini marocchini. Risparmio collettivo, tariffe trasparenti e assistenza nella tua lingua.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
